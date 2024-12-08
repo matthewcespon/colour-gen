@@ -4,7 +4,6 @@ import React from 'react';
 
 interface DisplayImageProps {
   file: File | null
-  generate: boolean
 }
 
 const DisplayImage: React.FC<DisplayImageProps> = ({
