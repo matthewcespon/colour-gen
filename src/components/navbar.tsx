@@ -15,21 +15,27 @@ import {
 } from '@/components/ui/navigation-menu'
 import { Input } from '@/components/ui/input'
 
-export default function Navbar() {
-  const [file, setFile] = React.useState<File | null>(null)
+interface NavBarProps {
+  setFile: React.Dispatch<React.SetStateAction<File | null>>;
+}
 
+const Navbar: React.FC<NavBarProps> = ({
+  setFile,
+}) => {
+  const [uploadedFile, setUploadedFile] = React.useState<File | null>(null)
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
-      setFile(event.target.files[0])
+      setUploadedFile(event.target.files[0])
     }
   }
 
   const handleUpload = async () => {
-    if (!file) return
-    console.log('Uploading file:', file.name)
+    if (!uploadedFile) return
+    console.log('Uploading file:', uploadedFile.name)
+    setFile(uploadedFile)
 
     // Reset the file input
-    setFile(null)
+    setUploadedFile(null)
   }
 
   return (
@@ -49,7 +55,7 @@ export default function Navbar() {
                         <div className="mb-2 mt-4 text-lg font-medium">
                           Welcome
                         </div>
-                        <p className="text-sm leading-tight text-gray-900">Upload an image to generate your own colour palette!</p>
+                        <p className="text-sm leading-tight text-gray-100">Upload an image to generate your own colour palette!</p>
                       </a>
                     </NavigationMenuLink>
                   </li>
@@ -91,8 +97,8 @@ export default function Navbar() {
             onChange={handleFileChange}
             className="max-w-sm"
           />
-          <Button onClick={handleUpload} disabled={!file} className="w-44">
-            <Upload className="mr-2 h-4 w-4" /> {!file ? 'Upload' : 'Generate!'}
+          <Button onClick={handleUpload} disabled={!uploadedFile} className="w-44">
+            <Upload className="mr-2 h-4 w-4" /> {'Generate'}
           </Button>
         </div>
       </div>
@@ -122,4 +128,6 @@ const ListItem = React.forwardRef<
   )
 })
 ListItem.displayName = 'ListItem'
+
+export default Navbar;
 

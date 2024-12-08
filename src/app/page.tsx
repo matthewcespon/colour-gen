@@ -1,38 +1,60 @@
-import Link from 'next/link'
-import { Button } from '@/components/ui/button'
+import React from 'react';
+import { ArrowRight, Palette } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import Link from 'next/link';
 
-const paletteColors = [
-  { bg: 'bg-[#F0E6E6]', rgb: 'rgb(240, 230, 230)' },
-  { bg: 'bg-[#E6F0E6]', rgb: 'rgb(230, 240, 230)' },
-  { bg: 'bg-[#E6E6F0]', rgb: 'rgb(230, 230, 240)' },
-  { bg: 'bg-[#F0E6F0]', rgb: 'rgb(240, 230, 240)' },
-]
+// Sample color palettes (replace with your actual generated palettes)
+const samplePalette = ['#F67280', '#C06C84', '#6C5B7B', '#355C7D', '#2A3D45'];
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#F5E6D3] via-[#E6F0F5] to-[#F0E6E6]">
-      <main className="container mx-auto px-4 py-16 flex flex-col items-center justify-center min-h-screen text-center">
-        <h1 className="text-5xl md:text-7xl font-extrabold text-[#2b2c2a] mb-6">
-          Color Palette Generator
-        </h1>
-        <p className="text-xl md:text-2xl text-[#6B6B6B] mb-12 max-w-2xl">
-          Create stunning color combinations for your next project with our easy-to-use palette generator.
-        </p>
-        <Button className="bg-[#B8D8D8] text-[#000000] hover:bg-[#1d9d9d] hover:text-[#ffffff]">
-          <Link href="/generate">
-            Get Started
-          </Link>
-        </Button>
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
-          {paletteColors.map((color, index) => (
-            <div key={index} className="flex flex-col items-center">
-              <div className={`w-20 h-20 ${color.bg}`}></div>
-              <span className="mt-2 font-medium">Color {index + 1}</span>
-              <span className="mt-1 text-[#6B6B6B] text-sm">{color.rgb}</span>
-            </div>
-          ))}
-        </div>
+    <div className="min-h-screen bg-gradient-to-br from-[#355C7D] to-[#2A3D45]">
+      <header className="p-6">
+        <nav className="flex justify-between items-center">
+          <div className="flex items-center space-x-2">
+            <Palette className="h-8 w-8 text-white" />
+            <span className="text-2xl text-white">ColorPal</span>
+          </div>
+        </nav>
+      </header>
+
+      <main className="container mx-auto px-4 py-12">
+        <section className="text-center mb-16">
+          <h1 className="text-5xl font-bold text-white mb-4">
+            Generate Beautiful Color Palettes
+          </h1>
+          <p className="text-xl text-white mb-8">
+            Inspire your next project with harmonious color combinations
+          </p>
+            <Link href="/generate">
+              <Button variant="outline" >
+                  Get Started
+                  <ArrowRight className="h-4 w-4" />
+              </Button>
+            </Link>
+        </section>
+
+        <section className="border-2 border-gray-400 p-6 rounded-lg shadow-lg backdrop-blur-md bg-white bg-opacity-20 max-w-2xl mx-auto">
+          <h3 className="text-lg font-semibold text-white mb-4">
+            Sample Color Palette
+          </h3>
+          <div className="grid grid-cols-5 gap-4">
+            {samplePalette.map((color, index) => (
+              <div key={index} className="flex flex-col items-center">
+                <div
+                  className="w-16 h-16 rounded-md"
+                  style={{ backgroundColor: color }}
+                />
+                <span className="mt-2 text-sm font-mono text-white">{color}</span>
+              </div>
+            ))}
+          </div>
+        </section>
       </main>
+
+      <footer className="text-center py-6 text-purple-900">
+        <p>&copy; 2024 ColorPal. All rights reserved.</p>
+      </footer>
     </div>
   )
 }
