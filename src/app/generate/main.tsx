@@ -10,6 +10,7 @@ export default function Main() {
 
   const [file, setFile] = useState<File | null>(null)
   const [showPopover, setShowPopover] = useState(false)
+  const [activeTab, setActiveTab] = useState("tab-1")
 
   useEffect(() => {
     const hasSeenPopover = localStorage.getItem('hasSeenPopover')
@@ -27,8 +28,9 @@ export default function Main() {
     <div className="flex flex-col min-h-screen bg-background">
       <Navbar 
         setFile={setFile}
+        activeTab={activeTab}
       />
-        <Tabs defaultValue="tab-1">
+        <Tabs defaultValue="tab-1" onValueChange={(value) => setActiveTab(value)}>
           <div className="flex justify-center mt-[2vh]">
           <TabsList>
             <TabsTrigger value="tab-1">Generate from image</TabsTrigger>

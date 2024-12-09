@@ -19,10 +19,12 @@ import { useState } from 'react'
 
 interface NavBarProps {
   setFile: React.Dispatch<React.SetStateAction<File | null>>;
+  activeTab: string;
 }
 
 const Navbar: React.FC<NavBarProps> = ({
   setFile,
+  activeTab,
 }) => {
   const { toast } = useToast()
   const [uploadedFile, setUploadedFile] = useState<File | null>(null)
@@ -102,16 +104,18 @@ const Navbar: React.FC<NavBarProps> = ({
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
-        <div className="ml-auto flex items-center space-x-4">
-          <Input
-            type="file"
-            onChange={handleFileChange}
-            className="max-w-[16rem] cursor-pointer"
-          />
-          <Button onClick={handleUpload} disabled={!uploadedFile} className="w-34">
-            <Upload className="mr-2 h-4 w-4" /> {'Generate'}
-          </Button>
-        </div>
+        {activeTab === 'tab-1' && (
+          <div className="ml-auto flex items-center space-x-4">
+            <Input
+              type="file"
+              onChange={handleFileChange}
+              className="max-w-[16rem] cursor-pointer"
+            />
+            <Button onClick={handleUpload} disabled={!uploadedFile} className="w-34">
+              <Upload className="mr-2 h-4 w-4" /> {'Generate'}
+            </Button>
+          </div>
+          )}
       </div>
     </nav>
   )
