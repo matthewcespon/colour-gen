@@ -14,6 +14,7 @@ import {
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu'
 import { Input } from '@/components/ui/input'
+import { useToast } from "@/hooks/use-toast"
 
 interface NavBarProps {
   setFile: React.Dispatch<React.SetStateAction<File | null>>;
@@ -22,6 +23,7 @@ interface NavBarProps {
 const Navbar: React.FC<NavBarProps> = ({
   setFile,
 }) => {
+  const { toast } = useToast()
   const [uploadedFile, setUploadedFile] = React.useState<File | null>(null)
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
@@ -31,8 +33,24 @@ const Navbar: React.FC<NavBarProps> = ({
 
   const handleUpload = async () => {
     if (!uploadedFile) return
-    console.log('Uploading file:', uploadedFile.name)
-    setFile(uploadedFile)
+    const validExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+    const fileExtension = uploadedFile.name.split('.').pop()?.toLowerCase();
+
+    if (fileExtension && validExtensions.includes(fileExtension)) {
+      console.log('Uploaded File:', uploadedFile.name);
+      setFile(uploadedFile);
+      toast({
+        variant: "success",
+        title: "Success!",
+      })
+    } else {
+        toast({
+          variant: "destructive",
+          title: "Uh oh! Something went wrong.",
+          description: "There was a problem with your image, try uploading a valid image.",
+        })
+      console.error('Invalid file type. Please upload an image file.');
+    }
 
     // Reset the file input
     setUploadedFile(null)
