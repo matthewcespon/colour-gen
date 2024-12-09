@@ -24,7 +24,7 @@ export function WelcomePopover({ open, onClose }: WelcomePopoverProps) {
         <div className="grid gap-4">
           <div className="space-y-2">
             <h4 className="font-medium leading-none">Welcome to PaletteGen!</h4>
-            <p className="text-sm text-muted-foreground">Upload an image to generate a colour palette</p>
+            <p className="text-sm text-muted-foreground">Upload an image to for a colour palette or randomly generate one!</p>
           </div>
         </div>
       </PopoverContent>

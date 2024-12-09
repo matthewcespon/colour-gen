@@ -4,6 +4,7 @@ import Navbar from '@/components/navbar';
 import DisplayImage from '../../components/display-image';
 import { Skeleton } from "@/components/ui/skeleton"
 import { WelcomePopover } from '@/components/ui/welcome-popover';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export default function Main() {
 
@@ -27,21 +28,32 @@ export default function Main() {
       <Navbar 
         setFile={setFile}
       />
-      <main className="flex flex-grow justify-center mt-[10vh]">
-        {file ? (
-          <DisplayImage
-            file={file}
-          />
-        ) : (
-        <div className="flex flex-col space-y-3">
-          <Skeleton className="h-[40vh] w-[40vw] rounded-xl" />
-          <div className="space-y-2">
-            <Skeleton className="h-[2vh] w-[20vw]" />
-            <Skeleton className="h-[2vh] w-[15vw]" />
+        <Tabs defaultValue="tab-1">
+          <div className="flex justify-center mt-[2vh]">
+          <TabsList>
+            <TabsTrigger value="tab-1">Generate from image</TabsTrigger>
+            <TabsTrigger value="tab-2">Random</TabsTrigger>
+          </TabsList>
           </div>
-        </div>
-          )}
-      </main>
+          <div className="flex flex-grow justify-center mt-[10vh]">
+          <TabsContent value="tab-1">
+            {file ? (
+              <DisplayImage
+                file={file}
+              />
+            ) : (
+            <div className="flex flex-col space-y-3">
+              <Skeleton className="h-[40vh] w-[40vw] rounded-xl" />
+              <div className="space-y-2">
+                <Skeleton className="h-[2vh] w-[20vw]" />
+                <Skeleton className="h-[2vh] w-[15vw]" />
+              </div>
+            </div>
+              )}
+          </TabsContent>
+          </div>
+          <TabsContent value="tab-2"></TabsContent>
+        </Tabs>
       <WelcomePopover open={showPopover} onClose={handlePopoverClose} />
     </div>
   )
