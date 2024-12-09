@@ -1,12 +1,27 @@
 "use client";
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '@/components/navbar';
-import DisplayImage from './display-image';
+import DisplayImage from '../../components/display-image';
 import { Skeleton } from "@/components/ui/skeleton"
+import { WelcomePopover } from '@/components/ui/welcome-popover';
 
 export default function Main() {
 
-  const [file, setFile] = React.useState<File | null>(null)
+  const [file, setFile] = useState<File | null>(null)
+  const [showPopover, setShowPopover] = useState(false)
+
+  useEffect(() => {
+    const hasSeenPopover = localStorage.getItem('hasSeenPopover')
+    if (!hasSeenPopover) {
+      setShowPopover(true)
+    }
+  }, [])
+
+  const handlePopoverClose = () => {
+    setShowPopover(false)
+    localStorage.setItem('hasSeenPopover', 'true')
+  }
+
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Navbar 
@@ -27,6 +42,7 @@ export default function Main() {
         </div>
           )}
       </main>
+      <WelcomePopover open={showPopover} onClose={handlePopoverClose} />
     </div>
   )
 }

@@ -15,6 +15,7 @@ import {
 } from '@/components/ui/navigation-menu'
 import { Input } from '@/components/ui/input'
 import { useToast } from "@/hooks/use-toast"
+import { useState } from 'react'
 
 interface NavBarProps {
   setFile: React.Dispatch<React.SetStateAction<File | null>>;
@@ -24,7 +25,7 @@ const Navbar: React.FC<NavBarProps> = ({
   setFile,
 }) => {
   const { toast } = useToast()
-  const [uploadedFile, setUploadedFile] = React.useState<File | null>(null)
+  const [uploadedFile, setUploadedFile] = useState<File | null>(null)
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
       setUploadedFile(event.target.files[0])
@@ -39,7 +40,7 @@ const Navbar: React.FC<NavBarProps> = ({
     if (fileExtension && validExtensions.includes(fileExtension)) {
       setFile(uploadedFile);
       toast({
-        variant: "success",
+        variant: "default",
         title: "Success!",
       })
     } else {
