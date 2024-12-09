@@ -65,7 +65,7 @@ const Navbar: React.FC<NavBarProps> = ({
             <NavigationMenuItem>
               <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                <ul className="p-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                   <li className="row-span-3">
                     <NavigationMenuLink asChild>
                       <a
@@ -78,6 +78,10 @@ const Navbar: React.FC<NavBarProps> = ({
                       </a>
                     </NavigationMenuLink>
                   </li>
+                  <ListItem href="/docs" title="Introduction">
+                    Learn about our product and its features.
+                  </ListItem>
+                  <ListItem href="/docs/installation" title="VisualisePal">Visualise your colour palettes within UI components!</ListItem>
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
@@ -103,7 +107,7 @@ const Navbar: React.FC<NavBarProps> = ({
             onChange={handleFileChange}
             className="max-w-[16rem] cursor-pointer"
           />
-          <Button onClick={handleUpload} disabled={!uploadedFile} className="w-44">
+          <Button onClick={handleUpload} disabled={!uploadedFile} className="w-34">
             <Upload className="mr-2 h-4 w-4" /> {'Generate'}
           </Button>
         </div>

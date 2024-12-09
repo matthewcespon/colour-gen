@@ -21,7 +21,7 @@ export default function Home() {
 
       <main className="flex-grow container mx-auto px-4">
         <section className="py-20 text-center">
-          <h2 className="text-5xl font-bold mb-6 leading-tight">Create Stunning <br />Color Palettes</h2>
+          <h2 className="text-5xl font-bold mb-6 leading-tight text-gray-700">Create Stunning Color Palettes</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Inspire your designs with beautifully crafted color combinations. Generate, explore, and save your perfect palette.
           </p>
