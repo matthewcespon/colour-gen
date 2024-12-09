@@ -58,6 +58,9 @@ const Navbar: React.FC<NavBarProps> = ({
     <nav className="border-b">
       <div className="flex h-16 items-center px-4">
         <NavigationMenu>
+          <Link href="/">
+            <h1 className="text-2xl font-bold pr-6">PaletteGen</h1>
+          </Link>
           <NavigationMenuList>
             <NavigationMenuItem>
               <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
@@ -66,12 +69,12 @@ const Navbar: React.FC<NavBarProps> = ({
                   <li className="row-span-3">
                     <NavigationMenuLink asChild>
                       <a
-                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted to-slate-400 p-6 no-underline outline-none focus:shadow-md"
+                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted to-slate-200 p-6 no-underline outline-none focus:shadow-md"
                       >
                         <div className="mb-2 mt-4 text-lg font-medium text-gray-700">
                           Welcome
                         </div>
-                        <p className="text-sm leading-tight text-gray-100">Upload an image to generate your own colour palette!</p>
+                        <p className="text-sm leading-tight text-gray-700">Upload an image to generate your own colour palette!</p>
                       </a>
                     </NavigationMenuLink>
                   </li>
@@ -80,7 +83,7 @@ const Navbar: React.FC<NavBarProps> = ({
             </NavigationMenuItem>
             <NavigationMenuItem>
               <Link href="/" legacyBehavior passHref>
-                <NavigationMenuLink className="font-medium hover:text-gray-600 hidden sm:block">
+                <NavigationMenuLink className="font-medium pl-4 hover:text-gray-600 hidden sm:block">
                   Home
                 </NavigationMenuLink>
               </Link>
