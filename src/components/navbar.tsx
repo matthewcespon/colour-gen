@@ -69,7 +69,7 @@ const Navbar: React.FC<NavBarProps> = ({
                   <li className="row-span-3">
                     <NavigationMenuLink asChild>
                       <a
-                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted to-slate-200 p-6 no-underline outline-none focus:shadow-md"
+                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-slate-200 to-muted p-6 no-underline outline-none focus:shadow-md"
                       >
                         <div className="mb-2 mt-4 text-lg font-medium text-gray-700">
                           Welcome
