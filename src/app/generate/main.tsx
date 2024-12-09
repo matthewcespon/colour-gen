@@ -11,8 +11,8 @@ export default function Main() {
       <Navbar 
         setFile={setFile}
       />
-      <main className="container mx-auto mt-8 px-4">
-        <h1 className="text-4xl font-bold">Palette Gen</h1>
+      <main className="container mx-auto mt-8 px-4 ">
+        <h1 className="text-3xl font-bold">PaletteGen</h1>
         <DisplayImage
           file={file}
         />

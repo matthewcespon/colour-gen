@@ -52,19 +52,13 @@ const Navbar: React.FC<NavBarProps> = ({
                       <a
                         className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted to-slate-400 p-6 no-underline outline-none focus:shadow-md"
                       >
-                        <div className="mb-2 mt-4 text-lg font-medium">
+                        <div className="mb-2 mt-4 text-lg font-medium text-gray-700">
                           Welcome
                         </div>
                         <p className="text-sm leading-tight text-gray-100">Upload an image to generate your own colour palette!</p>
                       </a>
                     </NavigationMenuLink>
                   </li>
-                  {/* <ListItem href="/docs" title="Introduction">
-                    Learn about our product and its features.
-                  </ListItem>
-                  <ListItem href="/docs/installation" title="Installation">
-                    How to install and set up our application.
-                  </ListItem> */}
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
@@ -82,20 +76,13 @@ const Navbar: React.FC<NavBarProps> = ({
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
-            {/* <NavigationMenuItem>
-              <Link href="/contact" legacyBehavior passHref>
-                <NavigationMenuLink className="font-medium pl-4 hover:text-gray-600">
-                  Contact
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem> */}
           </NavigationMenuList>
         </NavigationMenu>
         <div className="ml-auto flex items-center space-x-4">
           <Input
             type="file"
             onChange={handleFileChange}
-            className="max-w-sm"
+            className="max-w-sm cursor-pointer"
           />
           <Button onClick={handleUpload} disabled={!uploadedFile} className="w-44">
             <Upload className="mr-2 h-4 w-4" /> {'Generate'}
