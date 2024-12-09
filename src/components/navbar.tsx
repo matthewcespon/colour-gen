@@ -37,19 +37,17 @@ const Navbar: React.FC<NavBarProps> = ({
     const fileExtension = uploadedFile.name.split('.').pop()?.toLowerCase();
 
     if (fileExtension && validExtensions.includes(fileExtension)) {
-      console.log('Uploaded File:', uploadedFile.name);
       setFile(uploadedFile);
       toast({
         variant: "success",
         title: "Success!",
       })
     } else {
-        toast({
-          variant: "destructive",
-          title: "Uh oh! Something went wrong.",
-          description: "There was a problem with your image, try uploading a valid image.",
-        })
-      console.error('Invalid file type. Please upload an image file.');
+      toast({
+        variant: "destructive",
+        title: "Uh oh! Something went wrong.",
+        description: "There was a problem with your image, try uploading a valid image.",
+      })
     }
 
     // Reset the file input
