@@ -59,7 +59,7 @@ const Navbar: React.FC<NavBarProps> = ({
       <div className="flex h-16 items-center px-4">
         <NavigationMenu>
           <Link href="/">
-            <h1 className="text-2xl font-bold pr-6">PaletteGen</h1>
+            <h1 className="text-2xl font-bold pr-6 hidden sm:block">PaletteGen</h1>
           </Link>
           <NavigationMenuList>
             <NavigationMenuItem>
@@ -101,7 +101,7 @@ const Navbar: React.FC<NavBarProps> = ({
           <Input
             type="file"
             onChange={handleFileChange}
-            className="max-w-sm cursor-pointer"
+            className="max-w-[16rem] cursor-pointer"
           />
           <Button onClick={handleUpload} disabled={!uploadedFile} className="w-44">
             <Upload className="mr-2 h-4 w-4" /> {'Generate'}
