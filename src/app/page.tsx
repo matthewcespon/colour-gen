@@ -21,14 +21,13 @@ export default function Home() {
 
       <main className="flex-grow container mx-auto px-4">
         <section className="py-20 text-center">
-          <h2 className="text-5xl font-bold mb-6 leading-tight text-gray-700">Create Stunning Color Palettes</h2>
+          <h2 className="text-5xl font-bold mb-6 leading-tight text-gray-700">Create Stunning Colour Palettes</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Inspire your designs with beautifully crafted color combinations. Generate, explore, and save your perfect palette.
+            Inspire your designs with beautifully crafted colour combinations. Generate, explore, and save your perfect palette.
           </p>
           <Link href="/generate">
-            <Button size="lg" className="transition ease-in-out delay-150 bg-blue-500 hover:scale-105 hover:bg-black duration-300">
+            <Button size="lg" className="transition ease-in-out bg-blue-500 hover:scale-105 hover:bg-gray-800 duration-200">
               Get started
-
               <ArrowRight className="h-4 w-4" />
             </Button>
           </Link>
@@ -67,7 +66,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
               <h3 className="text-2xl font-bold">PaletteGen</h3>
-              <p>Create beautiful color palettes with ease</p>
+              <p>Create beautiful colour palettes with ease</p>
             </div>
             <nav>
               <ul className="flex space-x-4">
