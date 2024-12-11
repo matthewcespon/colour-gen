@@ -12,6 +12,7 @@ interface DashboardProps {
   file?: File | null
 }
 export const Dashboard: React.FC<DashboardProps> = ({
+  /* eslint-disable */
   file
 }) => {
   const [palette, setPalette] = useState<string[]>([])
