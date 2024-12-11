@@ -57,16 +57,16 @@ export default function RandomPaletteGenerator() {
 
   return (
     <div className="flex flex-col items-center">
-      <Button onClick={generatePalette} >
+      <Button onClick={generatePalette} className="mb-4">
         Generate New Palettes
       </Button>
       <Card>
         <CardHeader>
-          <CardTitle>Generated Palettes</CardTitle>
+          <CardTitle>Generated Palette</CardTitle>
         </CardHeader>
-        <CardContent className="w-[1000px]">
+        <CardContent className="flex gap-y-6">
           {palettes.map((palette, index) => (
-            <div key={index} className="mb-4">
+            <div key={index} className="mb-4 mx-4">
               <ColorPalette colors={palette} />
             </div>
           ))}

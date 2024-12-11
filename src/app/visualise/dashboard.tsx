@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -14,7 +14,11 @@ interface DashboardProps {
 export const Dashboard: React.FC<DashboardProps> = ({
   file
 }) => {
-  const [palette, setPalette] = useState<string[]>(generateRandomPalette())
+  const [palette, setPalette] = useState<string[]>([])
+
+  useEffect(() => {
+    setPalette(generateRandomPalette())
+  }, [])
 
   const handleGeneratePalette = () => {
     setPalette(generateRandomPalette())

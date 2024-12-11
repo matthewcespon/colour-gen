@@ -55,7 +55,9 @@ export default function Main() {
               )}
           </TabsContent>
           <TabsContent value="tab-2">
-            <RandomPaletteGenerator />
+            <div className="col-span">
+              <RandomPaletteGenerator />
+            </div>
           </TabsContent>
           </div>
         </Tabs>
