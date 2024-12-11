@@ -63,6 +63,7 @@ export default function RandomPaletteGenerator() {
 
   useEffect(() => {
     generatePalette()
+    // eslint-disable-next-line
   }, [])
 
   return (
