@@ -5,6 +5,7 @@ import DisplayImage from '../../components/display-image';
 import { Skeleton } from "@/components/ui/skeleton"
 import { WelcomePopover } from '@/components/ui/welcome-popover';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import RandomPaletteGenerator from '@/components/random-palettes';
 
 export default function Main() {
 
@@ -53,8 +54,10 @@ export default function Main() {
             </div>
               )}
           </TabsContent>
+          <TabsContent value="tab-2">
+            <RandomPaletteGenerator />
+          </TabsContent>
           </div>
-          <TabsContent value="tab-2"></TabsContent>
         </Tabs>
       <WelcomePopover open={showPopover} onClose={handlePopoverClose} />
     </div>

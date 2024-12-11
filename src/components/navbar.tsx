@@ -18,8 +18,8 @@ import { useToast } from "@/hooks/use-toast"
 import { useState } from 'react'
 
 interface NavBarProps {
-  setFile: React.Dispatch<React.SetStateAction<File | null>>;
-  activeTab: string;
+  setFile: React.Dispatch<React.SetStateAction<File | null>> ;
+  activeTab?: string;
 }
 
 const Navbar: React.FC<NavBarProps> = ({
@@ -84,7 +84,7 @@ const Navbar: React.FC<NavBarProps> = ({
                   <ListItem href="/docs" title="Introduction">
                     Learn about our product and its features.
                   </ListItem>
-                  <ListItem href="/docs/installation" title="VisualisePal">Visualise your colour palettes within UI components!</ListItem>
+                  <ListItem href="/visualise" title="VisualisePal">Visualise your colour palettes within UI components!</ListItem>
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
