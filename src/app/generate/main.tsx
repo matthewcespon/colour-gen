@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Navbar from '@/components/navbar';
 import DisplayImage from '../../components/display-image';
 import { Skeleton } from "@/components/ui/skeleton"
-import { WelcomePopover } from '@/components/ui/welcome-popover';
+import { WelcomePopover } from '@/components/welcome-popover';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import RandomPaletteGenerator from '@/components/random-palettes';
 

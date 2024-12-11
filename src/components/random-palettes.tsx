@@ -5,15 +5,22 @@ import ColorThief from "colorthief"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import ColorPalette from "./color-palette"
+import { useToast } from "@/hooks/use-toast"
 
 function rgbToString(r: number, g: number, b: number): string {
   return `rgb(${r}, ${g}, ${b})`
 }
 
 export default function RandomPaletteGenerator() {
+
+  const { toast } = useToast()
   const [palettes, setPalettes] = useState<string[][]>([])
 
   const generatePalette = async () => {
+    toast({
+      variant: "default",
+      title: "Generated!",
+    })
     const colorThief = new ColorThief()
     const newPalettes: string[][] = []
 
