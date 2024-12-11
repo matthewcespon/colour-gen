@@ -26,7 +26,10 @@ const DisplayImage: React.FC<DisplayImageProps> = ({
         img.onload = () => {
           const colorThief = new ColorThief();
           const palette = colorThief.getPalette(img, 5)
-          const hexPalette = palette.map(([r, g, b]: [number, number, number]) => `rgb(${r}, ${g}, ${b})`)
+          const hexPalette = palette.map((color: number[]) => {
+            const [r, g, b] = color;
+            return `rgb(${r}, ${g}, ${b})`;
+          })
           setPalettes([hexPalette])
           console.log(palette);
         };

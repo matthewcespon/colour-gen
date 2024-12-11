@@ -39,7 +39,10 @@ export default function RandomPaletteGenerator() {
           // Extract palette using ColorThief
           const palette = colorThief.getPalette(img, 5)
           const rgbPalette = palette.map(
-            ([r, g, b]: [number, number, number]) => rgbToString(r, g, b)
+            (value: number[]) => {
+              const [r, g, b] = value as [number, number, number];
+              return rgbToString(r, g, b);
+            }
           )
           newPalettes.push(rgbPalette)
         } catch (error) {
